@@ -1,31 +1,61 @@
 body {
-    font-family: Arial, sans-serif;
+
+    font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to right, #6a11cb, #2575fc); /* Fundo gradiente */
     margin: 0;
-    padding: 20px;
+    /* AJUSTE O PADDING DO BODY PARA SER UM POUCO MAIOR EM TELAS GRANDES, MAS COM UM MÍNIMO */
+    padding: 20px; /* Mantém um padding mínimo */
     box-sizing: border-box;
+
+    background-image: url('Paisagem-paudarco.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/Paisagem-paudarco.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: blur(5px); /* Ajuste este valor para o desfoque desejado */
+    z-index: -1;
+    transform: scale(1.02);
 }
 
 .container {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
+    width: 100%; /* Ocupa 100% da largura disponível do pai (body) */
+    max-width: 500px; /* Ajuste este valor. Ex: 500px, 550px, 600px. Você pode experimentar! */
+    padding: 20px; /* Um padding interno no container */
     box-sizing: border-box;
+    /* Adicione estas propriedades para centralizar o container se ele for menor que a tela */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.2); /* Transparência */
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    padding: 30px;
+    padding: 30px; /* Ajuste este padding se necessário. 30px costuma ser bom. */
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(10px); /* Efeito de vidro borrado */
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    color: #fff; /* Texto branco para contraste */
+    color: #fff;
     text-align: center;
 }
 
@@ -72,7 +102,7 @@ body {
 }
 
 button[type="submit"] {
-    background-color: #4CAF50; /* Verde vibrante */
+    background-color: #ff9500; /* Verde vibrante */
     color: white;
     padding: 12px 20px;
     border: none;
@@ -84,7 +114,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #ea8900;
 }
 
 .message {
@@ -102,4 +132,100 @@ button[type="submit"]:hover {
 
 .message.error {
     background-color: rgba(244, 67, 54, 0.7); /* Vermelho para erro */
+}
+
+/* ... (Seu CSS existente) ... */
+
+/* Estilos para o Popup */
+.popup-overlay {
+    /* REMOVA ESTA LINHA ABAIXO se estiver presente */
+    /* display: flex; */
+
+    /* Garanta que "display: none;" seja a primeira e única propriedade de display */
+    display: none; /* ESSA LINHA DEVE ESTAR PRESENTE E SER A ÚNICA PARA O DISPLAY */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+    justify-content: center; /* Manter para quando o JS o exibir */
+    align-items: center;    /* Manter para quando o JS o exibir */
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: rgba(255, 255, 255, 0.9); /* Branco semi-transparente */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    color: #333; /* Cor do texto para contraste */
+}
+
+.popup-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-button:hover {
+    color: #000;
+}
+
+#popupOkButton {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#popupOkButton:hover {
+    background-color: #45a049;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+/* ADICIONE OU VERIFIQUE SE ESTA LINHA EXISTE: */
+.form-group input[type="time"], /* <--- Adicione esta linha se não estiver lá */
+/* ------------------------------------------- */
+.form-group textarea {
+    width: calc(100% - 20px); /* Ajuste para padding */
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    outline: none; /* Remove borda de foco padrão */
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
 }
