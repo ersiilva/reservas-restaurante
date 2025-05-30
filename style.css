@@ -40,7 +40,7 @@ body::before {
 .container {
     width: 100%; /* Ocupa 100% da largura disponível do pai (body) */
     max-width: 500px; /* Ajuste este valor. Ex: 500px, 550px, 600px. Você pode experimentar! */
-    padding: 20px; /* Um padding interno no container */
+    padding: 4px; /* Um padding interno no container */
     box-sizing: border-box;
     /* Adicione estas propriedades para centralizar o container se ele for menor que a tela */
     margin-left: auto;
@@ -109,7 +109,7 @@ button[type="submit"] {
     border-radius: 10px;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 10px;
     transition: background-color 0.3s ease;
 }
 
