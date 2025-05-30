@@ -24,6 +24,10 @@
                     <input type="date" id="dataReserva" name="dataReserva" required>
                 </div>
                 <div class="form-group">
+                    <label for="horaChegada">Horário de Chegada:</label>
+                    <input type="time" id="horaChegada" name="horaChegada" required>
+                </div>
+                <div class="form-group">
                     <label for="quantidadePessoas">Quantidade de Pessoas:</label>
                     <input type="number" id="quantidadePessoas" name="quantidadePessoas" min="1" required>
                 </div>
@@ -33,7 +37,14 @@
                 </div>
                 <button type="submit">Enviar Solicitação</button>
             </form>
-            <div id="message" class="message"></div>
+            </div>
+    </div>
+
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-button" id="closePopupButton">&times;</span>
+            <p id="popupMessage"></p>
+            <button id="popupOkButton">OK</button>
         </div>
     </div>
     <script src="script.js"></script>
