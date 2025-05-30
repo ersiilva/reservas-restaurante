@@ -116,7 +116,7 @@ button[type="submit"] {
     font-size: 18px;
     margin-top: 10px; /* Pode aumentar este valor se o botão estiver muito próximo do campo acima */
     transition: background-color 0.3s ease;
-    width: 100%; /* Garante que o botão ocupe a largura total */
+    width: 70%; /* Garante que o botão ocupe a largura total */
 }
 
 button[type="submit"]:hover {
