@@ -1,6 +1,35 @@
 const form = document.getElementById('reservationForm');
 const messageDiv = document.getElementById('message');
 
+// ... (código existente do script.js) ...
+
+// Adicione esta seção de código abaixo da sua função showMessage ou no final do arquivo
+// MAS ANTES do fechamento do <script> se estivesse em um HTML, ou simplesmente no final do seu script.js
+
+const whatsappInput = document.getElementById('whatsapp');
+
+whatsappInput.addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não for dígito
+    let formattedValue = '';
+
+    if (value.length > 0) {
+        formattedValue += '(' + value.substring(0, 2);
+    }
+    if (value.length > 2) {
+        formattedValue += ') ' + value.substring(2, 7); // 5 dígitos para o primeiro bloco (ex: 9 9256)
+    }
+    if (value.length > 7) {
+        formattedValue += '-' + value.substring(7, 11); // 4 dígitos para o segundo bloco (ex: 7419)
+    }
+    if (value.length > 11) { // Se tiver 11 dígitos, é o formato com "9" na frente (ex: (88) 9 9256-7419)
+        formattedValue = '(' + value.substring(0, 2) + ') ' + value.substring(2, 3) + ' ' + value.substring(3, 7) + '-' + value.substring(7, 11);
+    }
+
+    e.target.value = formattedValue;
+});
+
+// ... (fim do código existente do script.js) ...
+
 // SEU URL DO WEB APP DO GOOGLE APPS SCRIPT JÁ CONFIGURADO
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbw9guma6NmDhsGI38WM9-MWTsS2c1oQjXA4ctGfnlrsUPSjMu-U03ennozfyvz2hIP9/exec';
 
