@@ -50,7 +50,7 @@ body::before {
 .card {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    padding: 30px; /* Ajuste este padding se necessário. 30px costuma ser bom. */
+    padding: 15px; /* Ajuste este padding se necessário. 15px costuma ser bom. */
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
