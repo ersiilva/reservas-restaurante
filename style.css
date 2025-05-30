@@ -10,7 +10,7 @@ body {
     padding: 20px; /* Mantém um padding mínimo */
     box-sizing: border-box;
 
-    background-image: url('Paisagem-paudarco.jpeg');
+    background-image: url('./img/Paisagem-paudarco.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,7 +27,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/img/Paisagem-paudarco.jpeg');
+    background-image: url('./img/Paisagem-paudarco.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
