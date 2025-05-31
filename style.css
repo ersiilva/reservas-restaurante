@@ -60,6 +60,7 @@ body::before {
     display: flex; /* Para flexbox interno se quiser alinhamentos */
     flex-direction: column; /* Coloca os itens em coluna */
     justify-content: space-between; /* Espaça o conteúdo, útil para colocar botão no final */
+    margin-top: 20px;
 }
 
 .card h1 {
