@@ -65,7 +65,7 @@ form.addEventListener('submit', async (e) => {
       body: JSON.stringify(formData),
     });
 
-    showMessage('Pedido de reserva enviado!', 'success'); // Chamando a função showMessage para o popup
+    showMessage('Pedido de reserva enviado! Assim que possível, entraremos em contato!', 'success'); // Chamando a função showMessage para o popup
     form.reset();
   } catch (error) {
     console.error('Erro ao enviar a reserva:', error);
