@@ -1,22 +1,21 @@
 body {
-    font-family: "Poppins", sans-serif; /* Mantenho a fonte "Poppins" */
+    font-family: "Poppins", sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center; /* Manter para centralizar em telas grandes */
+    align-items: center;
     min-height: 100vh;
-    margin: 0;
+    margin: 0px;
     padding: 20px;
     box-sizing: border-box;
 
-    background-image: url('./img/Paisagem-paudarco.jpeg'); /* Caminho da imagem */
+    background-image: url('./img/Paisagem-paudarco.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
     position: relative;
-    overflow-x: hidden; /* Evita rolagem horizontal */
-    /* Remove overflow: hidden; do body para permitir rolagem vertical em mobile */
+    overflow-x: hidden;
 }
 
 body::before {
@@ -24,8 +23,8 @@ body::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width:99%;
+    height:100%;
     background-image: url('./img/Paisagem-paudarco.jpeg');
     background-size: cover;
     background-position: center;
@@ -38,7 +37,7 @@ body::before {
 
 .container {
     width: 100%;
-    max-width: 500px; /* Mantém a largura máxima para desktop */
+    max-width: 500px;
     padding: 4px;
     box-sizing: border-box;
     margin-left: auto;
@@ -48,18 +47,17 @@ body::before {
 .card {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    padding: 15px; /* Mantém o padding padrão */
+    padding: 15px;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     color: #fff;
     text-align: center;
-    /* Ajuste de min-height para garantir que o card tenha altura suficiente mas seja flexível */
-    min-height: 500px; /* Exemplo, pode ajustar este valor se ainda cortar o botão */
-    display: flex; /* Para flexbox interno se quiser alinhamentos */
-    flex-direction: column; /* Coloca os itens em coluna */
-    justify-content: space-between; /* Espaça o conteúdo, útil para colocar botão no final */
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .logo {
@@ -92,21 +90,20 @@ body::before {
     font-weight: bold;
 }
 
-/* Agrupa todos os tipos de input para estilização consistente */
 .form-group input[type="text"],
 .form-group input[type="tel"],
 .form-group input[type="date"],
 .form-group input[type="number"],
-.form-group input[type="time"], /* CÓDIGO DA MODIFICAÇÃO ANTERIOR APLICADO AQUI */
+.form-group input[type="time"],
 .form-group textarea {
-    width: calc(100% - 20px); /* Ajuste para padding */
+    width: calc(100% - 20px);
     padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
     font-size: 16px;
-    outline: none; /* Remove borda de foco padrão */
+    outline: none;
 }
 
 .form-group input::placeholder,
@@ -121,24 +118,23 @@ body::before {
 }
 
 button[type="submit"] {
-    background-color: #ff9500; /* Laranja vibrante */
+    background-color: #ff9500;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 10px; /* Pode aumentar este valor se o botão estiver muito próximo do campo acima */
+    margin-top: 10px;
     transition: background-color 0.3s ease;
-    width: 70%; /* Garante que o botão ocupe a largura total */
+    width: 70%;
 }
 
 button[type="submit"]:hover {
     background-color: #ea8900;
 }
 
-/* O .message não será usado para o popup, mas mantemos por segurança se o script não o removeu completamente */
-.message {
+.message { /* Este estilo não é mais usado para o popup, mas mantido por segurança */
     margin-top: 20px;
     padding: 10px;
     border-radius: 5px;
@@ -157,7 +153,7 @@ button[type="submit"]:hover {
 
 /* Estilos para o Popup */
 .popup-overlay {
-    display: none; /* ESSA LINHA DEVE ESTAR PRESENTE E SER A ÚNICA PARA O DISPLAY */
+    display: none; /* Escondido por padrão, JavaScript o torna flex */
     position: fixed;
     top: 0;
     left: 0;
@@ -181,9 +177,15 @@ button[type="submit"]:hover {
     color: #333;
 }
 
+.popup-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+}
+
 .popup-content p {
     font-size: 1.2em;
-    margin-bottom: 20px;
+    margin-bottom: 2px;
     font-weight: bold;
 }
 
@@ -200,6 +202,26 @@ button[type="submit"]:hover {
     color: #000;
 }
 
+/* NOVO: Estilo para o botão/link do WhatsApp no popup */
+.whatsapp-button {
+    display: inline-block; /* Inicialmente será controlado por JS */
+    background-color: rgb(76, 175, 80);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none; /* Remove sublinhado do link */
+    font-weight: bold;
+    margin-top: 15px; /* Margem superior para separar da mensagem */
+    margin-bottom: 10px; /* Margem inferior para separar do botão OK */
+    transition: background-color 0.3s ease;
+    width: 180px;
+    height:auto;
+}
+
+.whatsapp-button:hover {
+    background-color: #1DA851; /* Tom mais escuro ao passar o mouse */
+}
+
 #popupOkButton {
     background-color: #4CAF50; /* Verde */
     color: white;
@@ -209,38 +231,36 @@ button[type="submit"]:hover {
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
+    margin-top: 10px; /* Ajustado para espaçar do botão WhatsApp */
 }
 
 #popupOkButton:hover {
     background-color: #45a049;
 }
 
-/* NOVO: Media Query para dispositivos menores (MUITO IMPORTANTE) */
-@media (max-width: 768px) { /* Geralmente 768px é o breakpoint para tablets/celulares */
+/* Media Query para dispositivos menores */
+@media (max-width: 768px) {
     body {
-        align-items: flex-start; /* Alinha o conteúdo ao topo para permitir rolagem */
-        padding-top: 15px; /* Adiciona um padding no topo */
-        padding-bottom: 15px; /* Adiciona um padding na parte inferior */
-        overflow-y: auto; /* PERMITE ROLAGEM VERTICAL NO BODY SE NECESSÁRIO */
-        overflow-x: hidden; /* Evita rolagem horizontal */
+        align-items: flex-start;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .container {
-        padding-left: 10px; /* Reduz o padding lateral para telas muito pequenas */
+        padding-left: 10px;
         padding-right: 10px;
     }
 
     .card {
-        padding: 0px 20px 20px 20px; /* Reduza o padding interno do cartão para economizar espaço */
-        min-height: auto; /* Remove min-height fixo para flexibilidade */
-        /* display: block; ou mantenha flex se preferir mas ajuste outros flex properties */
-        /* Para evitar o corte, o display: flex e flex-direction: column já ajuda a organizar o conteúdo */
+        padding: 0px 20px 20px 20px;
+        min-height: auto;
     }
 
-    /* Opcional: ajustar tamanhos de fonte em telas menores */
     .card h1 {
-        font-size: 1.6em; /* Um pouco menor para mobile */
-        margin-bottom: 15px; /* Reduzir um pouco a margem */
+        font-size: 1.6em;
+        margin-bottom: 15px;
     }
 
     .form-group label {
@@ -250,13 +270,15 @@ button[type="submit"]:hover {
     .form-group input,
     .form-group textarea,
     button[type="submit"] {
-        font-size: 14px; /* Levemente menor para caber melhor */
-        padding: 8px; /* Reduzir um pouco o padding dos inputs/botão */
+        font-size: 14px;
+        padding: 8px;
     }
 
-    /* Ajusta o padding dos inputs para a formatação do WhatsApp para evitar que fique apertado */
     .form-group input[type="tel"] {
         padding-left: 10px;
         padding-right: 10px;
+    }
+    .popup-content {
+        max-width: 250px;
     }
 }
